@@ -8,4 +8,65 @@
   html {
     @apply font-serif;
   }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply
+    font-bold
+  }
+}
+
+@layer components {
+  ol.list-upper-alpha {
+    list-style-type: upper-alpha;
+  }
+
+  ol.list-lower-alpha {
+    counter-reset: list;
+  }
+  ol.list-lower-alpha > li {
+    list-style: none;
+    position: relative;
+  }
+  ol.list-lower-alpha > li:before {
+    counter-increment: list;
+    content: counter(list, lower-alpha) ") ";
+    @apply
+    -left-6
+    absolute
+  }
+
+  .content-page h1,
+  .content-page h2,
+  .content-page h3,
+  .content-page h4,
+  .content-page h5,
+  .content-page h6,
+  .content-page p {
+    @apply
+    text-left
+  }
+
+  .content-page p{
+    @apply
+    text-xl
+    mb-5
+  }
+
+  .content-page :is(ul, ol) {
+    @apply
+    text-left
+    text-xl
+    mb-3
+    pl-6
+    list-outside
+  }
+  .content-page li {
+    @apply
+    pl-2
+  }
 }
